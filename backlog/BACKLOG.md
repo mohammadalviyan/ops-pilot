@@ -15,7 +15,7 @@
 | TASK-001 | Project foundation and repository structure | done | P0 |
 | TASK-002 | Docker Compose and environment setup | done | P0 |
 | TASK-003 | Backend base API and health check | done | P0 |
-| TASK-004 | Database migration foundation and seed data | todo | P0 |
+| TASK-004 | Database migration foundation and seed data | done | P0 |
 | TASK-005 | Frontend app shell and dashboard layout | todo | P0 |
 
 ## Epic 2 — Authentication

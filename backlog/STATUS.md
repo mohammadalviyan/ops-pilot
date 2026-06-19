@@ -10,11 +10,11 @@ None
 
 ## Last Completed Task
 
-`tasks/TASK-003-backend-base-api.md`
+`tasks/TASK-004-db-migrations-seed.md`
 
 ## Next Recommended Task
 
-`tasks/TASK-004-db-migrations-seed.md`
+`tasks/TASK-005-frontend-shell-layout.md`
 
 ## Progress Summary
 
@@ -26,6 +26,8 @@ None
 - Docker Compose local dependency setup has been added for PostgreSQL.
 - Backend database environment example matches the Docker Compose PostgreSQL credentials.
 - Backend Go module, Gin router, config loader, standard response package, and `GET /api/v1/health` endpoint are in place.
+- Database connection helper, migration runner, master table migrations, and MVP seed data are in place.
+- Local migrations were verified against PostgreSQL with seed rows for roles, users, departments, applications, and ticket categories.
 
 ## Open Questions
 

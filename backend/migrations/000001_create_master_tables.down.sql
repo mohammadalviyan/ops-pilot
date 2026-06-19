@@ -1,0 +1,6 @@
+DROP TABLE IF EXISTS users;
+DROP TABLE IF EXISTS ticket_categories;
+DROP TABLE IF EXISTS applications;
+DROP TABLE IF EXISTS departments;
+DROP TABLE IF EXISTS roles;
+DROP EXTENSION IF EXISTS pgcrypto;

@@ -64,7 +64,7 @@ password: opspilot
 port: 5432
 ```
 
-Future tasks will add database migrations and the Next.js app shell.
+Future tasks will add the Next.js app shell.
 
 ## Backend
 
@@ -79,6 +79,20 @@ Health check:
 
 ```sh
 curl http://localhost:8080/api/v1/health
+```
+
+Run database migrations:
+
+```sh
+cd backend
+DATABASE_URL="postgres://opspilot:opspilot@localhost:5432/opspilot?sslmode=disable" go run ./cmd/migrate -direction=up
+```
+
+Rollback the latest migration:
+
+```sh
+cd backend
+DATABASE_URL="postgres://opspilot:opspilot@localhost:5432/opspilot?sslmode=disable" go run ./cmd/migrate -direction=down
 ```
 
 ## Working Rules
