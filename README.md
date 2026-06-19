@@ -16,11 +16,12 @@ opspilot/
   prompts/            # Agent prompt references
   AGENTS.md           # Agent working rules
   README.md
+  docker-compose.yml
 ```
 
 ## Initial Setup
 
-No application runtime has been initialized yet. The current foundation only prepares the repository layout and environment placeholders.
+No application runtime has been initialized yet. The current foundation prepares the repository layout, environment placeholders, and local PostgreSQL dependency.
 
 1. Copy backend environment defaults when backend implementation starts:
 
@@ -34,7 +35,36 @@ No application runtime has been initialized yet. The current foundation only pre
    cp frontend/.env.example frontend/.env.local
    ```
 
-Future tasks will add Docker Compose, the Go API, database migrations, and the Next.js app shell.
+## Local Dependencies
+
+Start PostgreSQL:
+
+```sh
+docker compose up -d postgres
+```
+
+Check service status:
+
+```sh
+docker compose ps
+```
+
+Stop local dependencies:
+
+```sh
+docker compose down
+```
+
+The PostgreSQL credentials match `backend/.env.example`:
+
+```txt
+database: opspilot
+user: opspilot
+password: opspilot
+port: 5432
+```
+
+Future tasks will add the Go API, database migrations, and the Next.js app shell.
 
 ## Working Rules
 

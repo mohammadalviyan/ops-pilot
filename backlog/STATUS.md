@@ -10,11 +10,11 @@ None
 
 ## Last Completed Task
 
-`tasks/TASK-001-project-foundation.md`
+`tasks/TASK-002-docker-compose-env.md`
 
 ## Next Recommended Task
 
-`tasks/TASK-002-docker-compose-env.md`
+`tasks/TASK-003-backend-base-api.md`
 
 ## Progress Summary
 
@@ -23,6 +23,8 @@ None
 - Architecture, API contract, decisions, backlog, task files, and skills are prepared as starting point.
 - Initial monorepo foundation has been created with `backend/` and `frontend/` folders.
 - Root `.gitignore`, environment examples, and README project structure notes are in place.
+- Docker Compose local dependency setup has been added for PostgreSQL.
+- Backend database environment example matches the Docker Compose PostgreSQL credentials.
 
 ## Open Questions
 
