@@ -8,6 +8,8 @@
 # Go
 bin/
 coverage.out
+backend/.gocache/
+backend/.gomodcache/
 
 # Node / Next.js
 node_modules/

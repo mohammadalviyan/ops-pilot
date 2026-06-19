@@ -21,7 +21,7 @@ opspilot/
 
 ## Initial Setup
 
-No application runtime has been initialized yet. The current foundation prepares the repository layout, environment placeholders, and local PostgreSQL dependency.
+The current foundation prepares the repository layout, environment placeholders, local PostgreSQL dependency, and backend health API.
 
 1. Copy backend environment defaults when backend implementation starts:
 
@@ -64,7 +64,22 @@ password: opspilot
 port: 5432
 ```
 
-Future tasks will add the Go API, database migrations, and the Next.js app shell.
+Future tasks will add database migrations and the Next.js app shell.
+
+## Backend
+
+Run the backend API:
+
+```sh
+cd backend
+APP_ENV=local APP_PORT=8080 go run ./cmd/api
+```
+
+Health check:
+
+```sh
+curl http://localhost:8080/api/v1/health
+```
 
 ## Working Rules
 

@@ -38,7 +38,7 @@ This aligns with the project goal and the developer's backend focus.
 
 ## ADR-003 — Use Gin for HTTP Router
 
-**Status:** Proposed  
+**Status:** Accepted  
 **Date:** 2026-06-19
 
 ### Decision
