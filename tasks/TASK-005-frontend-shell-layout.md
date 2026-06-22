@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Priority
 
@@ -75,6 +75,16 @@ Set up the frontend foundation for Next.js App Router, Ant Design, and OpsPilot 
 - Manually verify `/dashboard` renders the app shell.
 - Manually verify Ant Design styles and OpsPilot glass CSS are loaded.
 - Confirm no API calls, auth logic, or dashboard data were added.
+
+## Validation Results
+
+- `npm install` completed and generated `frontend/package-lock.json`.
+- `npm run lint` passed.
+- `npm run typecheck` passed.
+- `npm run build` passed.
+- `npm run dev -- --hostname 127.0.0.1 --port 3000` started successfully with approval for localhost binding.
+- `curl -I http://127.0.0.1:3000/dashboard` returned `200 OK`.
+- Confirmed the task adds only shell, theme, glass style, and feedback foundation; no auth logic, dashboard business data, or backend API integration was added.
 
 ## Relevant Docs
 

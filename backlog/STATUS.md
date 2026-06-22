@@ -2,7 +2,7 @@
 
 ## Current Phase
 
-Foundation
+Auth
 
 ## Active Task
 
@@ -10,11 +10,11 @@ None
 
 ## Last Completed Task
 
-`tasks/TASK-004-db-migrations-seed.md`
+`tasks/TASK-005-frontend-shell-layout.md`
 
 ## Next Recommended Task
 
-`tasks/TASK-005-frontend-shell-layout.md`
+`tasks/TASK-006-backend-auth.md`
 
 ## Progress Summary
 
@@ -28,11 +28,12 @@ None
 - Backend Go module, Gin router, config loader, standard response package, and `GET /api/v1/health` endpoint are in place.
 - Database connection helper, migration runner, master table migrations, and MVP seed data are in place.
 - Local migrations were verified against PostgreSQL with seed rows for roles, users, departments, applications, and ticket categories.
+- Frontend Next.js App Router foundation, Ant Design registry/provider setup, theme tokens, OpsPilot glass CSS, reusable app shell components, and basic feedback states are in place.
+- `/dashboard` and `/login` placeholder routes render without auth, API integration, or dashboard business data.
 
 ## Open Questions
 
 - Confirm whether auth token will be stored via httpOnly cookie or temporary local storage for MVP.
-- Confirm whether Next.js should use App Router or Pages Router. Current proposal: App Router.
 
 ## Blockers
 
@@ -44,3 +45,4 @@ None.
 - Keep future integrations out of MVP.
 - Use monorepo with backend and frontend folders.
 - Use Gin for the backend HTTP router.
+- Use Next.js App Router with Ant Design and OpsPilot Glass Style for frontend foundation.

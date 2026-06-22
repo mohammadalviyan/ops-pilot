@@ -21,7 +21,7 @@ opspilot/
 
 ## Initial Setup
 
-The current foundation prepares the repository layout, environment placeholders, local PostgreSQL dependency, and backend health API.
+The current foundation prepares the repository layout, environment placeholders, local PostgreSQL dependency, backend health API, and frontend app shell.
 
 1. Copy backend environment defaults when backend implementation starts:
 
@@ -64,8 +64,6 @@ password: opspilot
 port: 5432
 ```
 
-Future tasks will add the Next.js app shell.
-
 ## Backend
 
 Run the backend API:
@@ -93,6 +91,31 @@ Rollback the latest migration:
 ```sh
 cd backend
 DATABASE_URL="postgres://opspilot:opspilot@localhost:5432/opspilot?sslmode=disable" go run ./cmd/migrate -direction=down
+```
+
+## Frontend
+
+Install frontend dependencies:
+
+```sh
+cd frontend
+npm install
+```
+
+Run the frontend app:
+
+```sh
+cd frontend
+npm run dev
+```
+
+Frontend checks:
+
+```sh
+cd frontend
+npm run lint
+npm run typecheck
+npm run build
 ```
 
 ## Working Rules
