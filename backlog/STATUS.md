@@ -10,11 +10,11 @@ None
 
 ## Last Completed Task
 
-`tasks/TASK-006-backend-auth.md`
+`tasks/TASK-007-frontend-login-page.md`
 
 ## Next Recommended Task
 
-Create `tasks/TASK-007-frontend-login-page-auth-state.md` from the backlog item, then implement frontend login page and auth state.
+`tasks/TASK-008-frontend-auth-session-guard.md`
 
 ## Progress Summary
 
@@ -32,10 +32,11 @@ Create `tasks/TASK-007-frontend-login-page-auth-state.md` from the backlog item,
 - `/dashboard` and `/login` placeholder routes render without auth, API integration, or dashboard business data.
 - Backend auth login, JWT generation/verification, auth middleware, `/auth/me`, and logout response are in place.
 - Seed user passwords were migrated to a bcrypt hash that accepts the documented demo password.
+- Frontend login page is connected to `POST /api/v1/auth/login`, stores the temporary MVP auth session, and redirects to `/dashboard` after successful login.
 
 ## Open Questions
 
-- Confirm whether auth token will be stored via httpOnly cookie or temporary local storage for MVP.
+- Confirm when MVP auth should move from temporary local storage to httpOnly cookie storage.
 
 ## Blockers
 
@@ -48,3 +49,4 @@ None.
 - Use monorepo with backend and frontend folders.
 - Use Gin for the backend HTTP router.
 - Use Next.js App Router with Ant Design and OpsPilot Glass Style for frontend foundation.
+- Use temporary local storage for MVP frontend auth state until cookie auth is implemented.

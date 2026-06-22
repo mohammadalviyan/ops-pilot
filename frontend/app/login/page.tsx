@@ -1,4 +1,4 @@
-import { EmptyState } from "../../components/feedback/EmptyState";
+import { LoginForm } from "../../features/auth/components/LoginForm";
 import { PageContainer } from "../../components/layout/PageContainer";
 import { PageHeader } from "../../components/layout/PageHeader";
 
@@ -8,12 +8,9 @@ export default function LoginPage() {
       <PageContainer narrow>
         <PageHeader
           title="OpsPilot Login"
-          description="Authentication will be implemented in the dedicated auth task."
+          description="Access the RPA operations workspace for tickets, robot monitoring, assets, and reporting."
         />
-        <EmptyState
-          title="Login is not enabled yet"
-          description="This placeholder keeps the route available without adding auth logic."
-        />
+        <LoginForm />
       </PageContainer>
     </main>
   );
