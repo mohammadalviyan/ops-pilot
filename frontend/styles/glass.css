@@ -144,6 +144,39 @@
     linear-gradient(135deg, #f8fbfd 0%, #eaf2f7 100%);
 }
 
+.op-login-panel {
+  width: 100%;
+  margin-top: 18px;
+}
+
+.op-login-kicker {
+  display: inline-flex;
+  margin-bottom: 8px;
+  color: #1d4ed8;
+  font-size: 13px;
+}
+
+.op-login-title {
+  margin: 0;
+  color: #172033;
+  font-size: 22px;
+  font-weight: 760;
+  line-height: 1.25;
+}
+
+.op-login-copy {
+  margin: 8px 0 0;
+  color: #536174;
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.op-login-helper {
+  display: block;
+  font-size: 13px;
+  text-align: center;
+}
+
 .op-topbar-title {
   margin: 0;
   color: #172033;

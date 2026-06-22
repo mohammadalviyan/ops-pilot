@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Priority
 
@@ -76,6 +76,15 @@ Implement the OpsPilot frontend login page using Next.js App Router, Ant Design,
 - Verify invalid credentials show an error message.
 - Verify successful login redirects to `/dashboard`.
 - Verify no route guard behavior was added yet.
+
+## Validation Results
+
+- `npm run lint` passed.
+- `npm run typecheck` passed after `next build` generated Next.js route types.
+- `npm run build` passed.
+- Frontend dev server rendered `/login` with `200 OK`.
+- Backend seed login was verified with `support@opspilot.local` and `password`.
+- Route guard behavior was not added; it remains scoped to TASK-008.
 
 ## Relevant Docs
 

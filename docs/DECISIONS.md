@@ -293,3 +293,25 @@ AI agents often generate repetitive and generic UI when they start directly from
 - If a required base component does not exist, the task should create it first.
 - Do not manually style status badges, priority badges, tables, and empty states repeatedly in each page.
 - Do not build a full page before the required shell and reusable components exist.
+
+---
+
+## ADR-013 — Use Temporary Local Storage for MVP Frontend Auth State
+
+**Status:** Accepted  
+**Date:** 2026-06-23
+
+### Decision
+
+For the MVP frontend auth flow, store the login access token and user profile in browser `localStorage`.
+
+### Reason
+
+The backend currently returns a bearer token from `POST /api/v1/auth/login`. Using `localStorage` keeps the first frontend login task small and allows the app to validate the basic auth flow before introducing cookie/session infrastructure.
+
+### Consequences
+
+- This is a temporary MVP approach, not the final preferred security posture.
+- Frontend auth code must not store plaintext passwords.
+- Frontend auth code must keep storage access centralized in `frontend/lib/auth.ts`.
+- A future task may migrate to httpOnly cookie auth; if it does, update this decision and the API/client behavior together.
