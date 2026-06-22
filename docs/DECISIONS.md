@@ -2,6 +2,8 @@
 
 This file records technical and product decisions so AI agents do not re-litigate the same choices repeatedly.
 
+---
+
 ## ADR-001 — Use Monorepo
 
 **Status:** Accepted  
@@ -121,20 +123,25 @@ Dashboard app benefits from routing, reusable components, and type safety.
 
 ## ADR-008 — Use Tailwind + shadcn/ui
 
-**Status:** Proposed  
-**Date:** 2026-06-19
+**Status:** Superseded  
+**Date:** 2026-06-19  
+**Superseded By:** ADR-011 — Use Ant Design with OpsPilot Glass Style
 
-### Decision
+### Previous Decision
 
 Use Tailwind CSS and shadcn/ui for UI components.
 
 ### Reason
 
-This speeds up dashboard implementation while keeping a modern, clean UI.
+This was initially proposed to speed up dashboard implementation while keeping a modern, clean UI.
 
-### Guardrail
+### Superseded Reason
 
-Do not over-customize components before core MVP flow works.
+OpsPilot has shifted toward a more enterprise-dashboard component strategy. Ant Design is a better fit for ticketing, monitoring, tables, forms, filters, timeline, and reporting screens.
+
+### Consequence
+
+Do not use Tailwind + shadcn/ui as the main frontend component strategy unless a future ADR explicitly changes the decision again.
 
 ---
 
@@ -165,3 +172,124 @@ Do not implement direct UiPath, Teams, WhatsApp, websocket real-time monitoring,
 ### Reason
 
 The current goal is a stable operational dashboard with ticketing, monitoring, and reporting foundation.
+
+---
+
+## ADR-011 — Use Ant Design with OpsPilot Glass Style
+
+**Status:** Accepted  
+**Date:** 2026-06-22
+
+### Decision
+
+OpsPilot frontend will use Ant Design as the primary UI component library.
+
+The visual identity will use **OpsPilot Glass Style**, implemented through:
+
+- Ant Design `ConfigProvider` theme tokens.
+- Local CSS classes.
+- Reusable wrapper components.
+- Consistent layout and data-display components.
+
+### Reason
+
+OpsPilot is an internal RPA operations dashboard with many enterprise-style UI needs:
+
+- Dashboard summary cards.
+- Data tables.
+- Filters.
+- Forms.
+- Status tags.
+- Priority tags.
+- Timeline/activity logs.
+- Modal/drawer interactions.
+- Reports and monitoring screens.
+
+Ant Design provides strong enterprise components out of the box. OpsPilot Glass Style prevents the UI from looking too plain, too default, or too generic.
+
+### Consequences
+
+- Do not use shadcn/ui, Material UI, Bootstrap, Chakra UI, or another component library as the primary UI system.
+- Frontend tasks must reuse Ant Design components first.
+- Custom components should wrap Ant Design, not replace it.
+- UI consistency must be controlled through `frontend/config/antd-theme.ts` and `frontend/styles/glass.css`.
+- Shared UI wrappers should live in `frontend/components/*`.
+- Feature-specific UI should live in `frontend/features/*`.
+- The agent must read `docs/UI_SYSTEM.md` and `.agents/skills/frontend-ant-design-glass/SKILL.md` before implementing visible frontend UI tasks.
+
+### Implementation Notes
+
+Required packages for Next.js App Router:
+
+```bash
+npm install antd @ant-design/icons @ant-design/nextjs-registry
+```
+
+Optional chart package:
+
+```bash
+npm install @ant-design/charts
+```
+
+Required frontend files:
+
+```txt
+frontend/app/layout.tsx
+frontend/app/providers.tsx
+frontend/config/antd-theme.ts
+frontend/styles/glass.css
+```
+
+---
+
+## ADR-012 — Use Reusable Frontend Base Components Before Building Feature Pages
+
+**Status:** Accepted  
+**Date:** 2026-06-22
+
+### Decision
+
+Before implementing full feature pages, the frontend must establish reusable base components.
+
+Required base components include:
+
+```txt
+components/layout/
+  AppShell
+  Sidebar
+  Topbar
+  PageContainer
+  PageHeader
+
+components/glass/
+  GlassCard
+  GlassPanel
+  GlassStatCard
+
+components/data-display/
+  StatusTag
+  PriorityTag
+  DataTable
+  FilterToolbar
+  ActivityTimeline
+
+components/feedback/
+  EmptyState
+  LoadingState
+  ErrorState
+
+components/forms/
+  FormSection
+  FieldError
+```
+
+### Reason
+
+AI agents often generate repetitive and generic UI when they start directly from feature pages. Reusable base components make the UI more consistent, human-designed, and maintainable.
+
+### Consequences
+
+- Frontend page tasks should reuse existing base components.
+- If a required base component does not exist, the task should create it first.
+- Do not manually style status badges, priority badges, tables, and empty states repeatedly in each page.
+- Do not build a full page before the required shell and reusable components exist.
