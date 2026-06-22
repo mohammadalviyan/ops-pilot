@@ -2,7 +2,7 @@
 
 ## Status
 
-todo
+done
 
 ## Priority
 
@@ -33,6 +33,16 @@ Implement backend authentication API for MVP.
 - Invalid credentials return standard error.
 - Protected route can read user identity.
 - Password is never stored or returned as plain text.
+
+## Validation Results
+
+- `go test ./...` passed.
+- `go run ./cmd/migrate -direction=up` applied the seed password migration locally.
+- `POST /api/v1/auth/login` succeeded for `support@opspilot.local` with password `password`.
+- `GET /api/v1/auth/me` succeeded with the returned bearer token.
+- Invalid login returned `401 Unauthorized` with the standard error shape.
+- `POST /api/v1/auth/logout` returned `Logout success` with `data: null`.
+- Password hashes are verified with bcrypt and are never returned in API responses.
 
 ## Relevant Docs
 

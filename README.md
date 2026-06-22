@@ -70,7 +70,10 @@ Run the backend API:
 
 ```sh
 cd backend
-APP_ENV=local APP_PORT=8080 go run ./cmd/api
+APP_ENV=local APP_PORT=8080 \
+DATABASE_URL="postgres://opspilot:opspilot@localhost:5432/opspilot?sslmode=disable" \
+JWT_SECRET="change-me" \
+go run ./cmd/api
 ```
 
 Health check:

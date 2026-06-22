@@ -22,7 +22,7 @@
 
 | Task | Title | Status | Priority |
 |---|---|---|---|
-| TASK-006 | Backend auth login, JWT, password hashing | todo | P0 |
+| TASK-006 | Backend auth login, JWT, password hashing | done | P0 |
 | TASK-007 | Frontend login page and auth state | todo | P0 |
 | TASK-008 | Protected routes and auth middleware | todo | P0 |
 

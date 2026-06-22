@@ -10,11 +10,11 @@ None
 
 ## Last Completed Task
 
-`tasks/TASK-005-frontend-shell-layout.md`
+`tasks/TASK-006-backend-auth.md`
 
 ## Next Recommended Task
 
-`tasks/TASK-006-backend-auth.md`
+Create `tasks/TASK-007-frontend-login-page-auth-state.md` from the backlog item, then implement frontend login page and auth state.
 
 ## Progress Summary
 
@@ -30,6 +30,8 @@ None
 - Local migrations were verified against PostgreSQL with seed rows for roles, users, departments, applications, and ticket categories.
 - Frontend Next.js App Router foundation, Ant Design registry/provider setup, theme tokens, OpsPilot glass CSS, reusable app shell components, and basic feedback states are in place.
 - `/dashboard` and `/login` placeholder routes render without auth, API integration, or dashboard business data.
+- Backend auth login, JWT generation/verification, auth middleware, `/auth/me`, and logout response are in place.
+- Seed user passwords were migrated to a bcrypt hash that accepts the documented demo password.
 
 ## Open Questions
 

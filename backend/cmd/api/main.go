@@ -10,6 +10,7 @@ import (
 	"time"
 
 	"opspilot/backend/internal/config"
+	"opspilot/backend/internal/database"
 	"opspilot/backend/internal/server"
 )
 
@@ -17,7 +18,15 @@ func main() {
 	cfg := config.Load()
 	logger := slog.New(slog.NewJSONHandler(os.Stdout, nil))
 
-	router := server.NewRouter(cfg)
+	ctx := context.Background()
+	dbPool, err := database.NewPostgresPool(ctx, cfg)
+	if err != nil {
+		logger.Error("failed to connect database", "error", err)
+		os.Exit(1)
+	}
+	defer dbPool.Close()
+
+	router := server.NewRouter(cfg, dbPool)
 	httpServer := &http.Server{
 		Addr:              ":" + cfg.AppPort,
 		Handler:           router,
